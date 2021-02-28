@@ -63,12 +63,13 @@ async fn main() -> Result<()> {
             .await?;
         }
         _ => {
-            Command::new(format!(
-                "{}/start.sh",
-                matches.value_of("directory").unwrap()
-            ))
-            .status()
-            .await?;
+            Command::new(format!("sh",))
+                .arg(format!(
+                    "{}/start.sh",
+                    matches.value_of("directory").unwrap()
+                ))
+                .status()
+                .await?;
         }
     };
     Ok(())
